@@ -36,5 +36,8 @@ The *Customization* model belongs to both *User* and *Product*, with has_many *:
 These models are present but currently without associations. For now, they serve as standalone models for storing JSONB fields related to combinations and prohibitions.
 
 
+## Model Description
+
+
 
 [Back to Main Page](README.md) | [Next: Database Specifications](schema.md) |

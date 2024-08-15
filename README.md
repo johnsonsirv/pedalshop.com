@@ -62,3 +62,11 @@ Please Refer to [Trade-offs](trade-offs.md)
 
 ## Additional Considerations (Future enhancements)
 Please Refer to [Additional Considerations](additional-considerations.md)
+
+
+#### References
+Original Docs: [Google Docs](https://docs.google.com/document/d/1eHt-meEFR0RT5fYn_ZkV6Xir2xGv3pEIgjMF2tSoPDo/edit?usp=sharing)
+
+Diagrams: [Draw.io](https://drive.google.com/file/d/1aZhMe5tZ7lft6Lw4LWvkbSwqRxQWcGQ_/view?usp=sharing)
+
+ERD: [ERDLab.io](https://erdlab.page.link/incazTcpLfNqovYt9)
