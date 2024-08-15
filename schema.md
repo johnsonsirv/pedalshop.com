@@ -1,0 +1,579 @@
+# Database Specifications
+
+| [Back to Main Page](README.md) | [Trade-offs & System Architecture Decisions](trade-offs.md) |
+
+### Table: Orders
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td>UUID</td>
+      <td>FK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>total_price</td>
+      <td>decimal</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: OrderItems
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>order_id</td>
+      <td>UUID</td>
+      <td>FK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>quantity</td>
+      <td>integer</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>customization_id</td>
+      <td>UUID</td>
+      <td>FK</td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: Users
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>full_name</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>role</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: Categories
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: Products
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>base_price</td>
+      <td>decimal</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>category_id</td>
+      <td>UUID</td>
+      <td>FK</td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: Parts
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: PartOptions
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>price</td>
+      <td>decimal</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>in_stock</td>
+      <td>boolean</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: PartOptionCombinations
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>part_options</td>
+      <td>jsonb</td>
+      <td></td>
+      <td>General Inverted Index - GIN</td>
+    </tr>
+     <tr>
+      <td>combination_price</td>
+      <td>decimal</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: PartOptionProhibitions
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>part_options</td>
+      <td>jsonb</td>
+      <td></td>
+      <td>General Inverted Index - GIN</td>
+    </tr>
+     <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: Customizations
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td>UUID</td>
+      <td>FK</td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>product_id</td>
+      <td>UUID</td>
+      <td>FK</td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>total_price</td>
+      <td>decimal</td>
+      <td></td>
+      <td></td>
+    </tr>
+      <tr>
+      <td>configurations</td>
+      <td>jsonb</td>
+      <td></td>
+      <td>General Inverted Index - GIN</td>
+    </tr>
+     <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td colspan="4">Add Composite index FK columns</td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: ProductParts (Join Table)
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>product_id</td>
+      <td>UUID</td>
+      <td>FK</td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>part_id</td>
+      <td>UUID</td>
+      <td>FK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td colspan="4">Add Composite index FK columns</td>
+    </tr>
+  </tbody>
+</table>
+
+### Table: ProductPartOptions (Join Table)
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>UUID</td>
+      <td>PK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>product_part_id</td>
+      <td>UUID</td>
+      <td>FK</td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>part_option_id</td>
+      <td>UUID</td>
+      <td>FK</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td colspan="4">Add Composite index FK columns</td>
+    </tr>
+  </tbody>
+</table>
+
+
+| [Back to Main Page](README.md) | [Trade-offs & System Architecture Decisions](trade-offs.md) |
