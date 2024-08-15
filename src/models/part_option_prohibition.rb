@@ -1,0 +1,3 @@
+
+class PartOptionProhibition < ApplicationRecord
+end
