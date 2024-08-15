@@ -26,5 +26,6 @@ Approach
 - Maintainability:
     - The relational model will be maintainable in the long run, especially as new features are added.
 
+UI Design Trade-offs are contained in [Workflows & UI Description](workflow-and-ui.md)
 
 [Back to Main Page](README.md) | [Next: Additional Considerations (Future Enhancements)](additional-considerations.md) |

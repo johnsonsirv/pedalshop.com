@@ -404,7 +404,7 @@
     <tr>
       <td>part_options</td>
       <td>jsonb</td>
-      <td></td>
+      <td>array or part option ids prohibited together</td>
       <td>General Inverted Index - GIN</td>
     </tr>
      <tr>

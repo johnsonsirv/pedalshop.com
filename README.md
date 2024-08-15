@@ -1,7 +1,7 @@
-# PedalShop: E-commerce Website
-A website that allows a bicycle small-medium business owner, to sell his bicycles.
+# PedalShop: e-commerce Website
+A website for a small-medium business owner to sell his bicycles.
 
-### Vision:
+### Objective 📌 
 A growing business now wants to sell via the internet. Bicycles are the main product, but if the business continues to grow, the business willl surely start selling other sports-related items such as skis, surfboards, roller skates, etc. It would be a nice bonus if the same website allows to sell those things as well.
 
 ## Domain Requirements 📝

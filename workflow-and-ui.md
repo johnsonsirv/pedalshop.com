@@ -47,7 +47,7 @@ The user navigates to the product page using a specific product_id. The system r
     - > Persisting the user's customization
     - > A new order is created in the database with an initial status of "pending." 
     - >A new order item is persisted with the customization created and the quantity the user wants for that particular customization
-- **Modifying or Empty Cart:**
+- **Modify or Empty the Cart:**
     - The cart acts as a temporary holding area where the user can review or modify their selections before proceeding to checkout.
     - Will trigger actions to update Customization, Order and Order Items OR remove from database.
 
