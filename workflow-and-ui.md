@@ -2,9 +2,8 @@
 
 | [Back to Main Page](README.md) | [Next: Entity Modeling](model-summary.md) |
 
----
 ## Main User Workflow & UI specifications
----
+
 The description of the main user actions in this e-commerce website
 
 ### 1.0 Assumption (user is already authenticated)
@@ -33,6 +32,7 @@ The user navigates to the product page using a specific product_id. The system r
 - **Interaction**: The user selects a part type (e.g., frame, wheels) and then chooses from available options (e.g., "diamond" frame, "mountain" wheels).
 - **Real-Time Price Updates**: As the user makes selections, the UI immediately reflects any price changes, providing instant feedback. The price calculation considers the selected PartOptions and any applicable PartOptionCombinations.
 - **Prohibited Combinations**: The system prevents the user from selecting prohibited combinations by disabling incompatible options. For example, if the user selects "mountain wheels," the "road frame" option may be disabled.
+    - Typically their will be a main part option, and a list of combinations or prohibitions
 - **Information on Price Implications:** A dedicated section in the UI informs the user about how their selections influence the final price. This transparency helps them understand the cost implications of their choices.
 
 >> **Step 2:  Customization Summary**
@@ -91,6 +91,7 @@ The description of the main workflows from the administration part of the websit
 > _How can Marcus introduce a new rim color, for example? Can you describe the UI? What changes in the database after this action?_
 
 - **Information Required:**
+    - A part type (to associate part choice)
     - Name: The name of the part option (e.g., "Rim Color Red")
     - Price: price for this part option
     - In Stock: Whether this part is available to be purchased.

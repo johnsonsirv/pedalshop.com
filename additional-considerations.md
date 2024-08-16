@@ -17,6 +17,8 @@
     The customization model will be helpful here
 
 - **E-Inventory Management** 
+    - Part & Part Options  inventory
+        - Auto-calculate if parts are still in-stock if they are still available in the Parts inventory
 
 
 | [Back to Main Page](README.md) |

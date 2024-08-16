@@ -4,10 +4,15 @@
 
 > What Software Architecture will you adopt?
 
-- Adopt SOA - Service Oriented Architecture that can scale into microservices architecture seamlessly
-- Enforce separation of concerns
-- Enforce SOLID, DRY, OOP and maintain clean coding
-- Promote testability and maintainability
+- Adopt MVC
+    - Simplicity and speed in managing application framework
+    - small to medium sized application (with a small team)
+    - can possibly scale into SOA
+- Layered Architecture with Service-Oriented Components
+    - manage complex business logic, providing a clear, maintainable, and scalable structure for your application.
+    - Enforce separation of concerns
+    - Enforce SOLID, DRY, OOP and maintain clean coding
+    - Promote testability and maintainability
 
 > How did you choose between Relational Model (Normalized schema) and Non-relational Model - NoSQL (De-normalized schema)
 

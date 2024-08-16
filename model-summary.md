@@ -17,15 +17,14 @@ The *Order* model belongs to User and has many *OrderItems*. The OrderItem model
 
 #### Category and Product
 The *Category* model has many *Products*, and *Product* belongs to *Category*.
-The Product model’s relationship with *Part* through *ProductPart* gives me a flexible association between products and their parts.
 
 
 #### Part and PartOption
-The *Part* model belongs to *Product* and has many *PartOptions* through *ProductPartOptions*. This setup allows me to associate parts with specific products and their respective options, which is appropriate for business use case.
+A *Part* model and has many *PartOptions*. This is a direct setup to handle option choices for each part. Parts and PartOptions are managed independently and remain flexible across the entire system which helps me to use it for all kinds of products like skis, surfboards.
 
 
 #### ProductPart and ProductPartOption
-These models many-to-many relationships between Product and Part, and between Part and PartOption. I believe it is essential for the flexible configuration of product parts and options.
+Models a many-to-many relationships between Product and Part, and between Part and PartOption. I believe it is essential for the flexible configuration of product parts and options. For example, admin could define specific configurations of a product, like a _Mountain Bicycle_ or _Road Bicycle_, each with different parts and part options.
 
 
 #### Customization
@@ -33,7 +32,7 @@ The *Customization* model belongs to both *User* and *Product*, with has_many *:
 
 
 #### PartOptionCombination and PartOptionProhibition
-These models are present but currently without associations. For now, they serve as standalone models for storing JSONB fields related to combinations and prohibitions.
+These models are present but currently without associations. For now, they serve as standalone models for storing JSONB fields related to combinations and prohibitions. Assumption is general prohibitions on any product and not product-specific prohibitions.
 
 
 ## Model Description
@@ -85,7 +84,7 @@ These models are present but currently without associations. For now, they serve
     - Refer to: [Table Products](schema.md#table-products)
 - Association
     - Belongs to Category
-    - Has many Parts through ProductPart
+    - Has many Parts through ProductParts
     - Has many Customizations
 - Examples
     - A mountain wheel bicycle
@@ -95,8 +94,8 @@ These models are present but currently without associations. For now, they serve
 - Fields:
     - Refer to: [Table Parts](schema.md#table-parts)
 - Association
-    - Belongs to a Product
-    - Has Many PartOptions, through ProductPartOptions
+    - Has many PartOptions
+    - Has many Products, through ProductParts
 - Example
     - Frame type
     - Frame Finish
@@ -110,20 +109,21 @@ These models are present but currently without associations. For now, they serve
     - Refer to: [Table PartOptions](schema.md#table-partoptions)
 - Association
     - Belongs To Part
+    - Has many ProductParts through, ProductPartOptions
 - Examples
-    - Frame Type Part
+    - Part: Frame Type
         - Options - Full-suspension || diamond || step-through
-    - Frame Finish part
+    - Part: Frame Finish
         - Options - Matte || shiny
-    - Wheel Part
+    - Part: Wheel
         - Options - Road wheels || mountain wheels || fat bike wheels
-    - Rim Color Part
+    - Part: Rim Color
         - Options - Red || Black || blue
-    - Chain Type
+    - Part: Chain
         - Options - Single-speed chain || 8-speed chain
 
 ### PartOptionCombinations
-- Purpose: Represents specific combinations of part options that have a unique price.
+- Purpose: Represents specific combinations of part options that have a unique price. Typically, there would be a main part option which will be influenced by other options (single or multiple)
 - Fields
     - Refer to: [Table PartOptionCombination](schema.md#table-partoptioncombinations)
 - Association
@@ -133,7 +133,7 @@ These models are present but currently without associations. For now, they serve
     - matte finish over a diamond frame, price: 35 EUR.
 
 ### PartOptionProhibition
-- Purpose: Represents prohibited combinations of part options, ensuring that invalid combinations are not allowed.
+- Purpose: Represents prohibited combinations of part options, ensuring that invalid combinations are not allowed. Typically, we can define a part option alongside options that can not be combined with it.
 - Fields
     - Refer to: [Table PartOptionProhibition](schema.md#table-partoptionprohibitions)
 - Association
@@ -153,18 +153,19 @@ These models are present but currently without associations. For now, they serve
 - Association
     - Belongs to a User
     - Belongs to a Product
-    - Has many Order Items
+    - Has many OrderItems
 
 ### ProductPart
-- Purpose: join table that associates a Product with its corresponding Part. This allows each Product to have multiple Parts associated with it, enabling customization based on the parts available for a particular product type.
+- Purpose: associates a Product with its corresponding Part. This allows to have Product with custom parts
 - Fields
     - Refer to: [Table ProductPart](schema.md#table-productparts-join-table)
 - Association
     - Belongs to Product
     - Belongs to Part
+    - Has many ProductPartOptions
 
 ### ProductPartOptions
-- Purpose:  designed to create associations between Parts and their specific PartOptions within the context of a particular Product. This means that for each Part of a product, there could be several PartOptions available for selection.
+- Purpose: associates a Part with its specific PartOptions within the context of a particular Product.
 - Fields
     - Refer to: [Table ProductPartOption](schema.md#table-productpartoptions-join-table)
 - Association

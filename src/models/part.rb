@@ -1,5 +1,9 @@
 class Part < ApplicationRecord
-  belongs_to :product
+  scope :with_part_options, -> { includes(:part_options) }
+  
+  has_many :part_options
+  has_many :product_parts
+  has_many :products, through: :product_parts
 
-  has_many :part_options, through: :product_part_options
+  validates :name, presence: true
 end

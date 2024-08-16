@@ -38,6 +38,12 @@
       <td></td>
     </tr>
      <tr>
+      <td>order_no</td>
+      <td>varchar</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
       <td>created_at</td>
       <td>timestamp</td>
       <td></td>
@@ -78,6 +84,12 @@
     <tr>
       <td>quantity</td>
       <td>integer</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>price</td>
+      <td>decimal</td>
       <td></td>
       <td></td>
     </tr>
@@ -217,7 +229,7 @@
       <td>name</td>
       <td>varchar</td>
       <td></td>
-      <td></td>
+      <td>Search index</td>
     </tr>
     <tr>
       <td>description</td>
@@ -273,7 +285,7 @@
       <td>name</td>
       <td>varchar</td>
       <td></td>
-      <td></td>
+      <td>Search Index</td>
     </tr>
      <tr>
       <td>created_at</td>
@@ -311,12 +323,18 @@
       <td>name</td>
       <td>varchar</td>
       <td></td>
-      <td></td>
+      <td>Search Index</td>
     </tr>
-     <tr>
+    <tr>
       <td>price</td>
       <td>decimal</td>
       <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>part_id</td>
+      <td>UUID</td>
+      <td>FK</td>
       <td></td>
     </tr>
     <tr>
@@ -404,7 +422,7 @@
     <tr>
       <td>part_options</td>
       <td>jsonb</td>
-      <td>array or part option ids prohibited together</td>
+      <td></td>
       <td>General Inverted Index - GIN</td>
     </tr>
      <tr>
