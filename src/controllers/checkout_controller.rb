@@ -2,7 +2,7 @@ class CheckoutController < ApplicationController
   before_action :current_browsing_user
   
   def start_checkout
-    @checkout = CheckoutService
+    @checkout = Checkout::CheckoutService
       .new(current_browsing_order, current_browsing_user)
       .start_checkout
 
@@ -12,13 +12,13 @@ class CheckoutController < ApplicationController
   end
 
   def process_payment
-    # CheckoutService
+    # Checkout::CheckoutService
     #   .new(current_browsing_order, current_browsing_user)
     #   .process_payment(payment_info)
   end
 
   def complete_order
-    # CheckoutService
+    # Checkout::CheckoutService
     #   .new(current_browsing_order, current_browsing_user)
     #   .complete_order(payment_info)
   end

@@ -1,37 +1,37 @@
 class ProductController < ApplicationController
   def create_with_default_config
-    ProductService.create_with_default_config('bicycle', product_details)
+    Products::ProductService.create_with_default_config('bicycle', product_details)
   end
 
   def create_part
-    ProductService.create_part(part_details)
+    Products::ProductService.create_part(part_details)
   end
 
   def create_part_option
-    ProductService.create_part_option(part_option_details)
+    Products::ProductService.create_part_option(part_option_details)
   end
 
   def create_part_option_combinations
-    ProductService.create_part_option_combinations(combination_details)
+    Products::ProductService.create_part_option_combinations(combination_details)
   end
 
   def create_part_option_prohibitions
-    ProductService.create_part_option_prohibitions(prohibition_details)
+    Products::ProductService.create_part_option_prohibitions(prohibition_details)
   end
 
   def update_combination_price
-    ProductService.update_combination_price(
+    Products::ProductService.update_combination_price(
       new_combination_price_details[:id],
       new_combination_price_detailsp[:price_adjustment]
     )
   end
 
   def update_combination_price
-    ProductService.update_combination_price(new_combination_price_details)
+    Products::ProductService.update_combination_price(new_combination_price_details)
   end
 
   def update_prohibited_part_options
-    ProductService.update_prohibited_part_options(update_prohibition_details)
+    Products::ProductService.update_prohibited_part_options(update_prohibition_details)
   end
 
   private

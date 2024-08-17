@@ -3,7 +3,6 @@ class PartOptionProhibition < ApplicationRecord
   
   validates :part_options, presence: true
 
-
   def self.all_part_option_prohibitions
     prohibitions = fetch_prohibitions
     part_option_ids = extract_part_option_ids(prohibitions)
