@@ -1,5 +1,5 @@
 # PedalShop: e-commerce Website
-A website for a small-medium business owner to sell his bicycles.
+A website for a small-medium business owner to sell bicycles.
 
 ### Objective 📌 
 A growing business now wants to sell via the internet. Bicycles are the main product, but if the business continues to grow, the business willl surely start selling other sports-related items such as skis, surfboards, roller skates, etc. It would be a nice bonus if the same website allows to sell those things as well.
@@ -12,9 +12,9 @@ Example list of parts and their possible choices
 |------------------|-------------------------|
 | **Frame type**   | _Full-suspension_, _diamond_, _step-through_     |
 | **Frame finish** | _Matte_, _shiny_        |
-| **Wheels** | _road wheels_, _mountain wheels_ _fat bike wheels_     |
+| **Wheels** | _road wheels_, _mountain wheels_, _fat bike wheels_     |
 | **Rim Color** | _Red_, _Blue_, _Black_    |
-| **Chain** | _Single-speed chain_, _8-speed chain_    |
+| **Chain** | _Single-speed_, _8-speed_    |
 
 2. Some combinations that are prohibited because they are not possible in reality
 

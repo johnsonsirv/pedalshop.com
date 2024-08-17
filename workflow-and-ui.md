@@ -52,15 +52,16 @@ The user navigates to the product page using a specific product_id. The system r
     - Will trigger actions to update Customization, Order and Order Items OR remove from database.
 
 >>>> **Step 4:  Checkout**
-- Calculates final price based on items on cart
-- Updates the order status to "Completed" and total price
+- Calculates final price based by summing items in the cart
+- process payment (via gateway service)
+- Completes the order, update status to "Completed" and total price
 
 ---
 ## Admin User Workflow & UI specifications
 ---
 The description of the main workflows from the administration part of the website, where an admin configures the store such by creating a new product, adding new parts and part options, and setting up prices, combinations.
 
-#### 1.0 Assumption admin is already authenticated & authorized as admin
+### 1.0 Assumption admin is already authenticated & authorized as admin
 
 ### 1.1 Admin User Action: Creation of a New Product
 
