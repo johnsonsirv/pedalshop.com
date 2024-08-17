@@ -1,6 +1,6 @@
 class CategoryController < ApplicationController
   def create
-    Category.create!(category_params)
+    Products::Category.create!(category_params)
   end
 
   def update
