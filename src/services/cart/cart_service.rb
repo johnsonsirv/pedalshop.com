@@ -8,9 +8,9 @@ module Cart
       params = customization_params(product, configurations, total_price)
   
       ActiveRecord::Base.transaction do
-        customization = Customization.create!(params)
+        customization = Products::Customization.create!(params)
   
-        pending_order = Order.find_or_create_pending!(user: @user)
+        pending_order = Orders::Order.find_or_create_pending!(user: @user)
         pending_order.order_items.create!(customization: customization)
       end
     end

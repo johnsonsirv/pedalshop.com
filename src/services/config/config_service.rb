@@ -26,11 +26,11 @@ module Config
     end
   
     def find_part_by_name(part_name)
-      Part.find_by(name: part_name)&.id
+      Products::Part.find_by(name: part_name)&.id
     end
   
     def find_part_option_by_name(part_option_name)
-      PartOption.find_by(name: part_option_name)&.id
+      Products::PartOption.find_by(name: part_option_name)&.id
     end
   end
 end

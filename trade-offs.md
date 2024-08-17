@@ -13,21 +13,24 @@
     - Enforce separation of concerns
     - Enforce SOLID, DRY, OOP and maintain clean coding
     - Promote testability and maintainability
+- Modularized codebase
+    - group related classes under modules
+    - start simple and small, monitor complexity for `Products` module and consider splitting as application grows
 
 > How did you choose between Relational Model (Normalized schema) and Non-relational Model - NoSQL (De-normalized schema)
 
 Approach
 - I adopted a Relational Model
-    - Maintain data consistency and transaction integrity crucial for an ecommerce website
+    - Maintain data consistency and transaction integrity crucial for an e-commerce website
 - For issues with complex queries and joins:
     - Implement caching layer
-    - Use JSONB columns for flexible configurations and de-normalize where necessary.
+    - Use JSONB columns for flexible configurations and de-normalization.
     - Optimize queries through:
-        - Proper indexing
+        - proper indexing
         - materialized views for complex aggregations that do not change frequently
 - Scaling for large volumes of transactional data
-    - Will adopt database sharding and partitioning
-    - Will use of read replicas for read-only traffic to serve queries, balance read-heavy operations and reduce load on the primary database
+    - I will adopt database sharding and partitioning
+    - I will use of read replicas for read-only traffic to serve queries, balance read-heavy operations and reduce load on the primary database
 - Maintainability:
     - The relational model will be maintainable in the long run, especially as new features are added.
 
