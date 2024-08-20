@@ -4,7 +4,7 @@ module Products
       ActiveRecord::Base.transaction do
   
         category = Products::Category.find_by(name: category_name)
-        product_config = Config::ConfigService.new(category).default_product_configuration
+        product_config = Config::ConfigService.new(category).default_config
   
         product = Products::Product.create!(
           name: product_details[:name],
