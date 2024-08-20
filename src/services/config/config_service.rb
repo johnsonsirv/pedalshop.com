@@ -1,35 +1,38 @@
 module Config
   class ConfigService
-    attr_reader :default_config
+    attr_reader :category
 
     PartWithOption = Struct.new(:part, :part_option)
 
     def initialize(category)
       @category = category # will be used in future to determine which config to load.
-      @bicycle_config = get_bicycle_config
     end
 
     def default_config
-      @bicycle_config # defaults to bicyle
+      @bicycle_config ||= get_bicycle_config # defaults to bicyle
     end
   
     private
   
     def get_bicycle_config
-      default_parts.map do |part, opton|
+      default_parts.map do |part, option|
         part_id = find_part_by_name(part)
         part_option_id = find_part_option_by_name(option)
 
         PartWithOption.new(part_id, part_option_id)
       end
     end
-  
+
     def find_part_by_name(part_name)
-      Products::Part.find_by(name: part_name)&.id
+      Products::Part.find_by!(name: part_name).id
+    rescue ActiveRecord::RecordNotFound
+      raise "Part not found: #{part_name}"
     end
-  
+    
     def find_part_option_by_name(part_option_name)
-      Products::PartOption.find_by(name: part_option_name)&.id
+      Products::PartOption.find_by!(name: part_option_name).id
+    rescue ActiveRecord::RecordNotFound
+      raise "Part option not found: #{part_option_name}"
     end
 
     def default_parts
