@@ -1,28 +1,27 @@
 module Config
   class ConfigService
+    attr_reader :default_config
+
+    PartWithOption = Struct.new(:part, :part_option)
+
     def initialize(category)
-      @category = category
+      @category = category # will be used in future to determine which config to load.
+      @bicycle_config = get_bicycle_config
     end
-  
-    def default_product_configuration
-      case @category.name
-      when PRODUCT_CATEORY[:bicycle]
-        bicycle_config
-      else
-        bicycle_config
-      end
+
+    def default_config
+      @bicycle_config # defaults to bicyle
     end
   
     private
   
-    def bicycle_config
-      {
-        find_part_by_name("frame") => find_part_option_by_name("frame full suspension"),  # Frame => Frame Full Suspension
-        find_part_by_name("frame-finish") => find_part_option_by_name("frame-finish shiny"),  # Frame-finish => Frame-finish Shiny
-        find_part_by_name("wheels") => find_part_option_by_name("wheels road wheels"),  # Wheels: Road wheels
-        find_part_by_name("rim-color") => find_part_option_by_name("rim-color black"),  # Rim-color: Black
-        find_part_by_name("chain") => find_part_option_by_name("chain single speed")   # Chain: Single-speed
-      }
+    def get_bicycle_config
+      default_parts.map do |part, opton|
+        part_id = find_part_by_name(part)
+        part_option_id = find_part_option_by_name(option)
+
+        PartWithOption.new(part_id, part_option_id)
+      end
     end
   
     def find_part_by_name(part_name)
@@ -31,6 +30,17 @@ module Config
   
     def find_part_option_by_name(part_option_name)
       Products::PartOption.find_by(name: part_option_name)&.id
+    end
+
+    def default_parts
+      # Typically configured on UI
+      {
+      'frame' => 'frame full suspension',
+      'frame-finish' => 'frame-finish shiny',
+      'wheels' => 'wheels road wheels',
+      'rim-color' => 'rim-color black',
+      'chain' => 'chain single speed'
+      }
     end
   end
 end

@@ -9,9 +9,9 @@ module Products
      validates :base_price, numericality: { greater_than_or_equal_to: 1 }
   
      def set_default_configuration(default_config)
-      default_config.each do |part_id, part_option_id|
-        product_part = Products::ProductPart.create!(product: self, part_id: part_id)
-        Products::ProductPartOption.create!(product_part: product_part, part_option_id: part_option_id)
+      default_config.each do |c|
+        product_part = Products::ProductPart.create!(product: self, part_id: c.part)
+        Products::ProductPartOption.create!(product_part: product_part, part_option_id: c.part_option)
       end
     end
   end
